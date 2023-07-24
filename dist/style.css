@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("cloud.avif");
+    background-size: cover;
+    backdrop-filter:  brightness(50%);
+}
+
+canvas {
+    display: block;
+}
+
+#canvas_container {
+    width: 100%;
+    height: 100vh;
+}
+#text_overlay {
+    position: absolute;
+    top: 350px; /* Adjust the top position as needed */
+    left: 50px; /* Adjust the left position as needed */
+    color: black; /* Set the text color */
+    font-family: "Courier New", monospace; /* Set the font-family to Courier New */
+    z-index: 1; /* Make sure the text is on top of the canvas */
+    style: underline;
+  }
+  .vertical{
+    writing-mode: vertical-lr; /* vertical writing mode, lr means left-to-right */
+    transform: rotate(180deg); /* rotate the text 180 degrees */
+    white-space: nowrap; /* prevent line breaks */
+  }
+
+  .underline {
+    text-decoration: underline;
+  }
+
+/* CSS for the animation */
+@keyframes textTranslate {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(-220%);
+    }
+  }
+
+  /* Apply the animation to both sets of text elements */
+  .animation {
+    animation: textTranslate 10s linear infinite; /* Adjust the animation duration (10s) as needed */
+  }
+
+  /* Offset the second set of text elements to create the seamless loop */
+  .clone {
+    animation-delay: 5s; /* Set the animation delay equal to half of the animation duration */
+  }
